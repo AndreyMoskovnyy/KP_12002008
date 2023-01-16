@@ -1,0 +1,13 @@
+version: '0.1'
+#описание используемых сервисов
+services:
+  postgres: #сервис с базой данных
+    image: postgres:14.4-alpine #образ postgres'а
+    container_name: postgresDBContainer #имя контейнера
+    ports:
+      - "5433:5432" #проброс портов
+    environment:
+      POSTGRES_USER: postgres #имя пользователя базы данных
+      POSTGRES_PASSWORD: postgres #пароль пользователя базы данных
+    volumes:
+      - ./postgresVolume:/var/lib/postgresql/data
